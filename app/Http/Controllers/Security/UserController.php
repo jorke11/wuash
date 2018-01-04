@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Security;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\Security\Roles;
 
 class UserController extends Controller {
 

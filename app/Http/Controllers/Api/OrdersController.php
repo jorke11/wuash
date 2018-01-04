@@ -28,7 +28,7 @@ class OrdersController extends Controller {
             $row = Orders::select("orders.id", "users.name", "users.last_name", "parameters.description as type_vehicle", DB::raw("CASE WHEN orders.status_id = 1 tHEN FALSE ELSE TRUE END as status_id"), "orders.created", DB::raw("CASE WHEN orders.status_id = 1 THEN 'Nuevo' WHEN orders.status_id = 2 THEN 'Completado' ELSE 'Cancelado' END as status")
                     ,"orders.hour","orders.day")
                             ->join("users", "users.id", "orders.user_id")
-                            ->join("parameters", "parameters.code", "order.type_vehicle_id")
+                            ->join("parameters", "parameters.code", "orders.type_vehicle_id")
                             ->where("orders.id", $id)->first();
             return response()->json(['status' => true, "msg" => "Cupo reservado. Numero de reserva: #" . $id, "data" => $row]);
         } else {

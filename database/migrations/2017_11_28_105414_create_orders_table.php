@@ -21,6 +21,7 @@ class CreateOrdersTable extends Migration {
             $table->dateTime('created');
             $table->date('day');
             $table->time('hour');
+            $table->text('placa');
             $table->dateTime('leaved')->nullable();
             $table->timestamps();
         });

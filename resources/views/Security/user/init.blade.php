@@ -1,7 +1,6 @@
-@extends('layouts.dash')
+@extends('layouts.app')
 @section('content')
-@section('title','User')
-@section('subtitle','Management')
+
 
 {!!Html::script('/vendor/treeview/logger.min.js')!!}
 {!!Html::script('/vendor/treeview/treeview.js')!!}
