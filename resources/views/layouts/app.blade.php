@@ -115,8 +115,8 @@
                                     <li><a href="/parameter">Parametros</a></li>
                                     <li><a href="/products">Productos</a></li>
                                     <li><a href="/services">Servicios</a></li>
-                                    <li><a href="/cities">Ciudades</a></li>
-                                    <li><a href="/departments">Departamentos</a></li>
+                                    <li><a href="/city">Ciudades</a></li>
+                                    <li><a href="/department">Departamentos</a></li>
                                     <li><a href="/email">Email</a></li>
                                 </ul>
                             </li>

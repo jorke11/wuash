@@ -11,6 +11,8 @@
   |
  */
 
+use App\Models;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -50,7 +52,7 @@ Route::get('/api/listParameter', function() {
             )->make(true);
 });
 
-Route::get('/api/listProduct', function() {
+Route::get('/api/listOrders', function() {
     $query = DB::table('orders');
 
     return Datatables::queryBuilder($query)->make(true);
@@ -61,7 +63,6 @@ Route::get('/api/listUser', function() {
                     DB::table("users")
                             ->select("users.id", "users.name", "users.email", DB::raw("coalesce(users.document::text,'') as document"), "roles.description as role", "cities.description as city", "parameters.description as status")
                             ->join("roles", "roles.id", "users.role_id")
-                            
                             ->leftjoin("cities", "cities.id", "users.city_id")
                             ->join("parameters", "parameters.code", DB::raw("users.status_id and parameters.group='generic'"))
             )->make(true);
@@ -71,3 +72,40 @@ Route::resource('/user', 'Security\UserController');
 Route::get('/user/getListPermission/{id}', 'Security\UserController@getPermission');
 Route::put('/user/savePermission/{id}', 'Security\UserController@savePermission');
 
+Route::resource('/role', 'Security\RoleController');
+Route::put('/role/savePermission/{id}', 'Security\RoleController@savePermissionRole');
+
+Route::get('/api/listRole', function() {
+    return Datatables::eloquent(Models\Security\Roles::query())->make(true);
+});
+
+
+Route::resource('/city', 'Administration\CityController');
+
+Route::resource('/department', 'Administration\DepartmentController');
+
+Route::get('/api/listCity', function() {
+    $query = DB::table("vcities");
+    return Datatables::queryBuilder($query)->make(true);
+});
+
+Route::get('/api/listDepartment', function() {
+    return Datatables::eloquent(Models\Administration\Department::query())->make(true);
+});
+
+
+Route::resource('/permission', 'Security\PermissionController');
+Route::get('/api/listPermission', 'Security\PermissionController@getPermission');
+Route::get('/permission/{id}/getMenu', ['uses' => 'Security\PermissionController@getMenu']);
+
+Route::resource('/clients', 'Clients\ClientController');
+
+Route::get('/api/listClient', function() {
+
+    $query = DB::table('vclient');
+
+    if (Auth::user()->role_id != 1) {
+        $query->where("responsible_id", Auth::user()->id);
+    }
+    return Datatables::queryBuilder($query)->make(true);
+});

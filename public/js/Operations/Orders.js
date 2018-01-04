@@ -313,12 +313,12 @@ function Orders() {
                     "<'row'<'col-sm-12't>>" +
                     "<'row'<'col-xs-3 col-sm-3 col-md-3 col-lg-3'i><'col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center'p><'col-xs-3 col-sm-3 col-md-3 col-lg-3'>>",
             "serverSide": true,
-            "ajax": "/api/listProduct",
+            "ajax": "/api/listOrders",
             scrollX: true,
             "lengthMenu": [[30, 100, 300, -1], [30, 100, 300, 'All']],
             columns: [
                 {data: "id"},
-                {data: "placa"},
+                {data: "plate"},
                 {data: "type_vehicle_id"},
                 {data: "hour"},
                 {data: "day"},

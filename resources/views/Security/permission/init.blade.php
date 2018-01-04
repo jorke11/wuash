@@ -1,8 +1,6 @@
-@extends('layouts.dash')
+@extends('layouts.app')
 
 @section('content')
-@section('title','Permission')
-@section('subtitle','Management')
 
 <div class="row">
     <div class="col-lg-4">
