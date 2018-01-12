@@ -1,204 +1,210 @@
-<div class="row">
-    <div class="panel panel-default">
-        <div class="page-title">
-            <div class="row">
-                <div class="col-lg-5 col-lg-offset-8">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="page-title">
                     <div class="row">
-                        <div class="col-lg-2">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Extra <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#" onclick="obj.showModalJustif()">Activo / Inactivo</a></li>
-                                </ul>
+                        <div class="col-lg-5 col-lg-offset-8">
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Extra <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#" onclick="obj.showModalJustif()">Activo / Inactivo</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <button class="btn btn-success btn-sm" id='btnNew'>
+                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"> Nuevo</span>
+                                    </button>
+                                    <button class="btn btn-success btn-sm" id='btnSave' disabled>
+                                        <span class="glyphicon glyphicon-ok" aria-hidden="true"> Guardar</span>
+                                    </button>
+                                </div>
+
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <button class="btn btn-success btn-sm" id='btnNew'>
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"> Nuevo</span>
-                            </button>
-                            <button class="btn btn-success btn-sm" id='btnSave' disabled>
-                                <span class="glyphicon glyphicon-ok" aria-hidden="true"> Guardar</span>
-                            </button>
-                        </div>
-
                     </div>
                 </div>
+
+
             </div>
         </div>
-        <div class="panel-body">
-            {!! Form::open(['id'=>'frm','files' => true]) !!}
-            <div class="row">
-                <div class="col-lg-8 col-center">
-                    <div class="row">
-                        <input type="hidden" id="id" name="id" class="input-suppliers">
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="address">Cuenta</label>
-                                <input type="text" class="form-control input-suppliers input-sm" id="business" name="business">
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="form-group">
-                                <label for="address">Razón Social</label>
-                                <input type="text" class="form-control input-suppliers input-sm" id="business_name" name="business_name">
-                            </div>
+    </div>
+    <div class="panel-body">
+        {!! Form::open(['id'=>'frm','files' => true]) !!}
+        <div class="row">
+            <div class="col-lg-8 col-center">
+                <div class="row">
+                    <input type="hidden" id="id" name="id" class="input-suppliers">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="address">Cuenta</label>
+                            <input type="text" class="form-control input-suppliers input-sm" id="business" name="business">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="address" class="control-label ">Tipo Documento *</label>
-                                <select id="type_document" name="type_document" class="form-control input-suppliers input-sm" required>
-                                    <option value="0">Selección</option>
-                                    @foreach($type_document as $val)
-                                    <option value="{{$val->code}}">{{$val->description}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="address" class="control-label">Documento *</label>
-                                <input type="text" class="form-control input-suppliers input-sm" id="document" name="document"required>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="address" class="control-label">Dígito de Verificación</label>
-                                <input type="text" class="form-control input-suppliers input-sm" id="verification" name="verification"  readonly>
-                            </div>
+                    <div class="col-lg-8">
+                        <div class="form-group">
+                            <label for="address">Razón Social</label>
+                            <input type="text" class="form-control input-suppliers input-sm" id="business_name" name="business_name">
                         </div>
                     </div>
-                    <div class="row">
-
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="address" class="control-label">Tipo Persona*</label>
-                                <select class="form-control input-suppliers input-sm"  id="type_regime_id" name="type_regime_id" required>
-                                    <option value="0">Selección</option>
-                                    @foreach($type_person as $val)
-                                    <option value="{{$val->code}}">{{$val->description}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="address" class="control-label ">Tipo Documento *</label>
+                            <select id="type_document" name="type_document" class="form-control input-suppliers input-sm" required>
+                                <option value="0">Selección</option>
+                                @foreach($type_document as $val)
+                                <option value="{{$val->code}}">{{$val->description}}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="address" class="control-label">Tipo Regimen*</label>
-                                <select id="type_person_id" name="type_person_id" class="form-control input-suppliers input-sm" required>
-                                    <option value="0">Selección</option>
-                                    @foreach($type_regimen as $val)
-                                    <option value="{{$val->code}}">{{$val->description}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="address">Plazo de Pago</label>
-                                <input type="text" class="form-control input-suppliers input-sm" id="term" name="term">
-                            </div>
-                        </div>
-
-
                     </div>
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="address">Ciudad</label>
-                                <select class="form-control input-suppliers input-sm"  id="city_id" name="city_id" data-api="/api/getCity">
-                                </select>
-                            </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="address" class="control-label">Documento *</label>
+                            <input type="text" class="form-control input-suppliers input-sm" id="document" name="document"required>
                         </div>
-
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="address" class="control-label">Dirección *</label>
-                                <input type="text" class="form-control input-suppliers input-sm" id="address" name="address"  required>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="address">Teléfono</label>
-                                <input type="text" class="form-control input-suppliers input-sm" id="phone" name="phone" >
-                            </div>
-                        </div>
-
-
                     </div>
 
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="address">Sitio Web</label>
-                                <input type="text" class="form-control input-suppliers" id="web_site" name="web_site">
-                            </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="address" class="control-label">Dígito de Verificación</label>
+                            <input type="text" class="form-control input-suppliers input-sm" id="verification" name="verification"  readonly>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="address">Correo</label>
-                                <input type="text" class="form-control input-suppliers" id="email" name="email">
-                            </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="address" class="control-label">Tipo Persona*</label>
+                            <select class="form-control input-suppliers input-sm"  id="type_regime_id" name="type_regime_id" required>
+                                <option value="0">Selección</option>
+                                @foreach($type_person as $val)
+                                <option value="{{$val->code}}">{{$val->description}}</option>
+                                @endforeach
+                            </select>
                         </div>
-
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="address" class="control-label">Terminación de Contrato</label>
-                                <input type="datetime" class="form-control input-suppliers" id="contract_expiration" name="contract_expiration"
-                                       value="{{date("Y-m-d H:i")}}">
-                            </div>
-                        </div>  
-
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="address" class="control-label">Tipo Regimen*</label>
+                            <select id="type_person_id" name="type_person_id" class="form-control input-suppliers input-sm" required>
+                                <option value="0">Selección</option>
+                                @foreach($type_regimen as $val)
+                                <option value="{{$val->code}}">{{$val->description}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="address">Plazo de Pago</label>
+                            <input type="text" class="form-control input-suppliers input-sm" id="term" name="term">
+                        </div>
                     </div>
 
-                    <div class="row">
-                        
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label for="address" class="control-label">Responsable</label>
-                                <select class="form-control input-suppliers"  id="responsible_id" name="responsible_id" data-api="/api/getResponsable" required>
-                                </select>
-                            </div>
-                        </div>
-
-                    </div>
 
                 </div>
-            </div>
-
-            {!!Form::close()!!}
-            <div class="row">
-                <div class="col-lg-8 col-center">
-                    <div class="row">
-                        <div class="col-lg-1">
-                            <button class="btn btn-success" type="button" id="modalImage"><i class="fa fa-cloud-upload" aria-hidden="true"></i></button>
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="row" i>
-                                <table class="table table-condensed table-striped" id="contentAttach">
-                                    <thead>
-                                        <tr>
-                                            <th>Documento</th>
-                                            <th>Archivo</th>
-                                            <th>Ver</th>
-                                            <th>Acción</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                    </tbody>
-                                </table>
-                            </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="address">Ciudad</label>
+                            <select class="form-control input-suppliers input-sm"  id="city_id" name="city_id" data-api="/api/getCity">
+                            </select>
                         </div>
                     </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="address" class="control-label">Dirección *</label>
+                            <input type="text" class="form-control input-suppliers input-sm" id="address" name="address"  required>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="address">Teléfono</label>
+                            <input type="text" class="form-control input-suppliers input-sm" id="phone" name="phone" >
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="address">Sitio Web</label>
+                            <input type="text" class="form-control input-suppliers" id="web_site" name="web_site">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="address">Correo</label>
+                            <input type="text" class="form-control input-suppliers" id="email" name="email">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="address" class="control-label">Terminación de Contrato</label>
+                            <input type="datetime" class="form-control input-suppliers" id="contract_expiration" name="contract_expiration"
+                                   value="{{date("Y-m-d H:i")}}">
+                        </div>
+                    </div>  
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="address" class="control-label">Responsable</label>
+                            <select class="form-control input-suppliers"  id="responsible_id" name="responsible_id" data-api="/api/getResponsable" required>
+                            </select>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
         </div>
 
+        {!!Form::close()!!}
+<!--        <div class="row">
+            <div class="col-lg-8 col-center">
+                <div class="row">
+                    <div class="col-lg-1">
+                        <button class="btn btn-success" type="button" id="modalImage"><i class="fa fa-cloud-upload" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="row" i>
+                            <table class="table table-condensed table-striped" id="contentAttach">
+                                <thead>
+                                    <tr>
+                                        <th>Documento</th>
+                                        <th>Archivo</th>
+                                        <th>Ver</th>
+                                        <th>Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>-->
     </div>
 </div>
 

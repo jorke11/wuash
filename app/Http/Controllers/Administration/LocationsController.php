@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Administration\Parameters;
 use App\Models\Administration\Products;
+use App\Models\Administration\Locations;
 
 class LocationsController extends Controller {
 
@@ -32,22 +33,22 @@ class LocationsController extends Controller {
 //            $user = Auth::User();
             $input["status_id"] = 1;
 
-            $input["init"] = array_filter($input["init"]);
-            $input["end"] = array_filter($input["end"]);
-            $day = null;
-            if (count($input["init"]) > 0) {
+//            $input["init"] = array_filter($input["init"]);
+//            $input["end"] = array_filter($input["end"]);
+//            $day = null;
+//            if (count($input["init"]) > 0) {
+//
+//                foreach ($input["init"] as $i => $value) {
+//                    $day[] = array("day" => $i + 1, "init" => $value, "end" => $input["end"][$i]);
+//                }
+//            }
 
-                foreach ($input["init"] as $i => $value) {
-                    $day[] = array("day" => $i + 1, "init" => $value, "end" => $input["end"][$i]);
-                }
-            }
-
-            if ($day != null) {
-                $input["days"] = (string) json_encode($day);
-            }
-            if (isset($input["courses"])) {
-                $input["courses"] = (string) json_encode($input["courses"]);
-            }
+//            if ($day != null) {
+//                $input["days"] = (string) json_encode($day);
+//            }
+//            if (isset($input["courses"])) {
+//                $input["courses"] = (string) json_encode($input["courses"]);
+//            }
 
 
             $result = Locations::create($input);

@@ -115,31 +115,7 @@
 
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="email">Acerca del Producto</label>
-                                    <textarea class="form-control input-product" name="about" id="about"></textarea>
-
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="email">Porque se va a gustar</label>
-                                    <textarea class="form-control input-product" name="why" id="why"></textarea>
-                                </div>
-                            </div>
-
                         </div>
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="email">Ingredientes</label>
-                                    <textarea class="form-control input-product" name="ingredients" id="ingredients"></textarea>
-
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
                 <div class="panel panel-default">
@@ -189,18 +165,10 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    <label for="email" class="control-label">Embalaje SF*</label>
-                                    <input type="text" class="form-control input-product" id="units_sf" name='units_sf' required data-type="number">
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label for="email" class="control-label">Costo SF*</label>
+                                    <label for="email" class="control-label">Costo*</label>
                                     <input type="text" class="form-control input-product" id="cost_sf" name='cost_sf' required data-type="number">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="email" class="control-label">Impuesto *</label>
@@ -213,6 +181,9 @@
                                     </select>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+
                             <div class="col-lg-4">
                                 <div class="form-group" class="control-label">
                                     <label for="email" class="control-label">Precio SF*</label>
@@ -225,14 +196,15 @@
                                     <input type="text" class="form-control input-product" id="packaging" name='packaging'  data-type="number">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="email" class="control-label">Stock Minimo</label>
                                     <input type="text" class="form-control input-product" id="minimum_stock" name='minimum_stock'  data-type="number">
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="email" class="control-label">Precio Sugerido</label>

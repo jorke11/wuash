@@ -113,7 +113,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administración <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/parameter">Parametros</a></li>
-                                    <li><a href="/products">Productos</a></li>
+                                    <li><a href="/product">Productos</a></li>
                                     <li><a href="/services">Servicios</a></li>
                                     <li><a href="/city">Ciudades</a></li>
                                     <li><a href="/department">Departamentos</a></li>
@@ -125,6 +125,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Operación <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
+                                    <li><a href="/suppliers">Proveedores</a></li>
                                     <li><a href="/clients">Clientes</a></li>
                                     <li><a href="/orders">Ordenes</a></li>
                                 </ul>

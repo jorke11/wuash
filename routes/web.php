@@ -150,3 +150,35 @@ Route::get('/api/listSchedules', function(Request $request) {
     $query = DB::table("schedules");
     return Datatables::queryBuilder($query)->make(true);
 });
+
+Route::get('/api/getCategory', 'Administration\SeekController@getCategory');
+
+Route::resource('/suppliers', 'Suppliers\SupplierController');
+Route::post('/suppliers/upload', 'Suppliers\SupplierController@uploadImage');
+Route::post('/suppliers/uploadExcel', 'Suppliers\SupplierController@uploadExcel');
+Route::post('/suppliers/uploadClient', 'Suppliers\SupplierController@uploadclient');
+Route::put('/suppliers/checkmain/{id}', 'Suppliers\SupplierController@checkMain');
+Route::delete('/suppliers/deleteImage/{id}', 'Suppliers\SupplierController@deleteImage');
+Route::get('/suppliers/getImages/{id}', 'Suppliers\SupplierController@getImages');
+
+Route::post('/suppliers/StoreSpecial', 'Suppliers\SupplierController@storeSpecial');
+Route::put('/suppliers/updatePrice/{id}', 'Suppliers\SupplierController@updatePrice');
+Route::put('/suppliers/UpdateContact/{id}', 'Suppliers\SupplierController@updateContact');
+Route::post('/suppliers/StoreContact', 'Suppliers\SupplierController@storeContact');
+Route::delete('/suppliers/deleteContact/{id}', 'Suppliers\SupplierController@deleteContact');
+Route::post('/suppliers/addChage', 'Suppliers\SupplierController@addChanges');
+
+Route::get('/suppliers/contact/{id}', 'Suppliers\SupplierController@editContact');
+
+Route::post('/suppliers/addTax', 'Suppliers\SupplierController@storeTax');
+Route::put('/suppliers/UpdateTax', 'Suppliers\SupplierController@updateTax');
+Route::delete('/suppliers/deleteTax/{id}', 'Suppliers\SupplierController@deleteTax');
+
+Route::get('/api/listSupplier', function() {
+
+    $query = DB::table('vsupplier');
+    if (Auth::user()->role_id != 1 && Auth::user()->role_id != 5) {
+        $query->where("responsible_id", Auth::user()->id);
+    }
+    return Datatables::queryBuilder($query)->make(true);
+});
