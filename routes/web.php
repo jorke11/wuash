@@ -20,7 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/api/getDepartment', 'Administration\SeekController@getDepartment');
 
 Route::resource('/parameter', 'Administration\ParametersController');
 Route::resource('/orders', 'Operations\OrdersController');
@@ -53,7 +53,7 @@ Route::get('/api/listParameter', function() {
 });
 
 Route::get('/api/listOrders', function() {
-    $query = DB::table('orders');
+    $query = DB::table('vorders');
 
     return Datatables::queryBuilder($query)->make(true);
 });

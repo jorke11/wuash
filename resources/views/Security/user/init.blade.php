@@ -5,8 +5,9 @@
 {!!Html::script('/vendor/treeview/logger.min.js')!!}
 {!!Html::script('/vendor/treeview/treeview.js')!!}
 
-<div class="row">
-    <div>
+<div class="container-fluid">
+    <div class="row">
+
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist" id='myTabs'>
             <li role="presentation" class="active"><a href="#list" aria-controls="home" role="tab" data-toggle="tab">List</a></li>

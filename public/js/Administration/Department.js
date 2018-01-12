@@ -84,8 +84,7 @@ function Department() {
             data: data,
             dataType: 'JSON',
             success: function (data) {
-                $("#frm #id").val(data.id);
-                $("#frm #description").val(data.description);
+                $(".input-department").setFields({data:data})
             }
         })
     }

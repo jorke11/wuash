@@ -319,10 +319,10 @@ function Orders() {
             columns: [
                 {data: "id"},
                 {data: "plate"},
-                {data: "type_vehicle_id"},
+                {data: "type_vehicle"},
                 {data: "hour"},
                 {data: "day"},
-                {data: "status_id"},
+                {data: "status"},
                 {data: "id"},
             ],
             order: [[1, 'ASC']],
