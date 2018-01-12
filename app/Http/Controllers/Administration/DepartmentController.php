@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Administration;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\Administration\Department;
 class DepartmentController extends Controller {
 
     public function index() {

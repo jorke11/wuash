@@ -19,3 +19,11 @@ LEFT JOIN parameters as typeregime ON typeregime.code=s.type_regime_id and typer
 LEFT JOIN parameters as typestakeholder ON typestakeholder.code=s.type_stakeholder and typestakeholder."group"='typestakeholder'
 LEFT JOIN parameters as status ON status.code=s.status_id and status."group"='generic'
 WHERE s.type_stakeholder=1 
+
+
+create view vorders as
+select o.id,o.plate,p.description type_vehicle, o.hour,o.day,st.description status
+from orders o
+JOIN parameters p ON p.code=o.type_vehicle_id AND p.group='type_vehicle'
+JOIN parameters st ON st.code=o.status_id AND st.group='status_order'
+	
