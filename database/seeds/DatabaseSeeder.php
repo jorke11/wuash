@@ -22,7 +22,6 @@ class DatabaseSeeder extends Seeder {
         $this->call(WarehouseTableSeeder::class);
         $this->call(CityTableSeeder::class);
         $this->call(StakeholderTableSeeder::class);
-        
     }
 
 }
