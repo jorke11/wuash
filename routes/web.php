@@ -109,3 +109,44 @@ Route::get('/api/listClient', function() {
     }
     return Datatables::queryBuilder($query)->make(true);
 });
+
+
+Route::get('/api/listProduct', function() {
+    $query = DB::table('vproducts');
+    return Datatables::queryBuilder($query)->make(true);
+});
+
+Route::resource('/product', 'Administration\ProductController');
+Route::post('/product/upload', 'Administration\ProductController@uploadImage');
+Route::put('/product/checkmain/{id}', 'Administration\ProductController@checkMain');
+Route::delete('/product/deleteImage/{id}', 'Administration\ProductController@deleteImage');
+Route::get('/product/getImages/{id}', 'Administration\ProductController@getImages');
+Route::post('/product/StoreSpecial', 'Administration\ProductController@storeSpecial');
+Route::post('/product/uploadExcel', 'Administration\ProductController@storeExcel');
+Route::post('/product/uploadExcelCode', 'Administration\ProductController@storeExcelCode');
+Route::resource('services', 'Administration\ServicesController');
+
+Route::get('/api/listServices', function() {
+    $query = DB::table('vservices');
+    return Datatables::queryBuilder($query)->make(true);
+});
+
+Route::resource('/schedules', 'Administration\SchedulesController');
+Route::get('/schedules/getTable/{day}/{course_id}/{location_id}', 'Administration\SchedulesController@getTable');
+
+Route::post('/schedules/detail', 'Administration\SchedulesController@storeDetail');
+Route::get('/schedules/{id}/editDetail', 'Administration\SchedulesController@getDetail');
+Route::delete('/schedules/detail/{id}', 'Administration\SchedulesController@destroyItem');
+Route::get('/schedules/{id}/getModal', 'Administration\SchedulesController@getModalData');
+
+
+Route::resource('/locations', 'Administration\LocationsController');
+
+Route::get('/api/listLocations', function() {
+    return Datatables::queryBuilder(DB::table("locations"))->make(true);
+});
+
+Route::get('/api/listSchedules', function(Request $request) {
+    $query = DB::table("schedules");
+    return Datatables::queryBuilder($query)->make(true);
+});

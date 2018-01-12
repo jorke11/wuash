@@ -118,6 +118,8 @@
                                     <li><a href="/city">Ciudades</a></li>
                                     <li><a href="/department">Departamentos</a></li>
                                     <li><a href="/email">Email</a></li>
+                                    <li><a href="/schedules">Planes</a></li>
+                                    <li><a href="/locations">Sucursales</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">

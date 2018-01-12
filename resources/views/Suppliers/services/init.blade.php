@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 {!!Html::script('/vendor/file-input/js/fileinput.js')!!}
 {!!Html::style('/vendor/file-input/css/fileinput.css')!!}
 
@@ -22,23 +23,23 @@
             <div role="tabpanel" class="tab-pane active" id="list">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        @include('Administration.products.list')
+                        @include('Suppliers.services.list')
                     </div>
                 </div>
 
             </div>
             <div role="tabpanel" class="tab-pane " id="management">
-                @include('Administration.products.management')
+                @include('Suppliers.services.management')
             </div>
             <div role="tabpanel" class="tab-pane " id="upload">
-                @include('Administration.products.upload')
+                @include('Suppliers.services.upload')
             </div>
             <div role="tabpanel" class="tab-pane " id="upload_code">
-                @include('Administration.products.upload_code')
+                @include('Suppliers.services.upload_code')
             </div>
 
         </div>
     </div>
 </div>
-{!!Html::script('js/Administration/Products.js')!!}
+{!!Html::script('js/Suppliers/Services.js')!!}
 @endsection

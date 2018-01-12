@@ -27,3 +27,24 @@ from orders o
 JOIN parameters p ON p.code=o.type_vehicle_id AND p.group='type_vehicle'
 JOIN parameters st ON st.code=o.status_id AND st.group='status_order'
 	
+
+--drop view vproducts
+create view vproducts as
+select p.id,p.title,substring(p.description from 1 for 30) || ' ...' as description,s.business as supplier,p.reference,p.bar_code,p.units_supplier,p.units_sf,
+p.cost_sf,p.tax,p.price_sf,
+(select path from products_image where product_id=p.id and main=true limit 1) as image,
+(select thumbnail from products_image where product_id=p.id and main=true limit 1) as thumbnail,status.description as status,p.status_id,p.category_id,p.supplier_id,
+p.short_description,p.warehouse
+from products p
+JOIN stakeholder s ON s.id=p.supplier_id
+LEFT JOIN parameters as status ON status.code=p.status_id and status."group"='generic'
+WHERE p.type_product_id IS NULL
+
+
+create view vservices as
+select p.id,p.title,substring(p.description from 1 for 30) || ' ...' as description,s.business as supplier,p.reference,p.bar_code,p.units_supplier,p.units_sf,p.cost_sf,p.tax,p.price_sf,
+p.image,status.description as status
+from products p
+JOIN stakeholder s ON s.id=p.supplier_id
+LEFT JOIN parameters as status ON status.code=p.status_id and status."group"='generic'
+WHERE p.type_product_id IS NOT NULL
