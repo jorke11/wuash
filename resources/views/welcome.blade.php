@@ -43,6 +43,7 @@
 
             .content {
                 text-align: center;
+                width:100%
             }
 
             .title {
@@ -50,7 +51,18 @@
             }
 
             .links > a {
+                /*color: #636b6f;*/
+                color: white;
+                padding: 0 25px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+            .linkslogin > a {
                 color: #636b6f;
+                /*color: white;*/
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -64,22 +76,22 @@
             }
         </style>
     </head>
-    <body>
+    <body style="background-image: url('../images/fondo_azul.jpg');   background-repeat: no-repeat, repeat;background-size: 100%">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
+            <div class="top-right linkslogin">
+                @if (Auth::check())
+                <a href="{{ url('/home') }}">Home</a>
+                @else
+                <a href="{{ url('/login') }}">Login</a>
+                <a href="{{ url('/register') }}">Register</a>
+                @endif
+            </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    <img src="images/LogoBlack.png" width="40%">
+            <div class="content" style="background-color: #4a4a4a;padding-top: 3%;padding-bottom: 3%">
+                <div class="title m-b-md" >
+                    <img src="images/Logo.png" width="40%">
                 </div>
 
                 <div class="links">

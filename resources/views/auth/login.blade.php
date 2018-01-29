@@ -1,4 +1,4 @@
-@extends('layouts.login')
+    @extends('layouts.login')
 
 @section('content')
 
@@ -8,7 +8,7 @@
             <img src="images/Logo.png" width="40%" class="img-responsive">
         </div>
     </div>
-    <div class="row row-center" style="background-color: #4a4a4a;">
+    <div class="row row-center" style="background-color: #4a4a4a;padding-bottom: 2%;padding-top: 2%">
         <div class="col-md-6">
 
             <div class="panel-body">
